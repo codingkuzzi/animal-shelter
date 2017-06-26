@@ -1,20 +1,20 @@
 class Animal {
   public String mSpecies;
-  public int mAge;
+  public Integer mAge;
   public String mSize;
   public String mBreed;
   public String mColor;
-  public int mPrice;
+  public Integer mPrice;
   public boolean mAdopted;
 
-  public Animal(String species, int age, String size, String breed, String color, int price, boolean adopted) {
+  public Animal(String species, Integer age, String size, String breed, String color, Integer price) {
     mSpecies = species;
     mAge = age;
     mSize = size;
     mBreed = breed;
     mColor = color;
     mPrice = price;
-    mAdopted = adopted;
+    mAdopted = false;
   }
 
 

@@ -2,10 +2,10 @@ import java.io.Console;
 public class App {
  public static void main(String[] args) {
    Console myConsole = System.console();
-   Animal cat = new Animal("Cat", 3, "Persian", "Red", "Extra", 40, false);
-   Animal dog = new Animal("Dog", 5, "Yorkie", "Brown", "Small", 70, false);
-   Animal fish = new Animal("Fish", 1, "Gold Fish", "Yellow", "Medium", 30, false);
-   Animal bird = new Animal("Bird", 2, "Parrot", "Blue", "Extra small", 40, false);
+   Animal cat = new Animal("Cat", 3, "Persian", "Red", "Extra", 40);
+   Animal dog = new Animal("Dog", 5, "Yorkie", "Brown", "Small", 70);
+   Animal fish = new Animal("Fish", 1, "Gold Fish", "Yellow", "Medium", 30);
+   Animal bird = new Animal("Bird", 2, "Parrot", "Blue", "Extra small", 40);
 
    /*Animal cat = new Animal();
     cat.mSpecies = "Cat";
@@ -43,6 +43,22 @@ public class App {
 
 
     Animal[] allAnimals = {cat, dog, fish, bird};
+    System.out.println("Welcome to our animal shelter. What would you like to do? Enter one of the following options: All Animals or Search Price and Age or Add Animal");
+
+
+    String navigationChoice = myConsole.readLine();
+
+    if (navigationChoice.equals("All Animals")){
+     for ( Animal individualAnimal : allAnimals ) {
+         System.out.println( "----------------------" );
+         System.out.println( individualAnimal.mSpecies );
+         System.out.println( individualAnimal.mAge );
+         System.out.println( individualAnimal.mBreed );
+         System.out.println( individualAnimal.mColor );
+         System.out.println( individualAnimal.mSize );
+         System.out.println( individualAnimal.mPrice );
+     }
+    } else if (navigationChoice.equals("Search Price and Age")){
     System.out.println("What is your maximum budget for an animal ?");
     String stringUserMaxBudget = myConsole.readLine();
     int userMaxBudget = Integer.parseInt(stringUserMaxBudget);
@@ -50,12 +66,9 @@ public class App {
     String stringUserMaxAge = myConsole.readLine();
     int userMaxAge = Integer.parseInt(stringUserMaxAge);
     System.out.println("Alright, here's what we have in your price range:");
-
-
-
-    for ( Animal individualAnimal : allAnimals ) {
-      Boolean animalIsAdopted = individualAnimal.isAdopted();
-      System.out.println(animalIsAdopted);
+     for ( Animal individualAnimal : allAnimals ) {
+        Boolean animalIsAdopted = individualAnimal.isAdopted();
+        System.out.println(animalIsAdopted);
       if (individualAnimal.worthBuying(userMaxBudget) && individualAnimal.agePet(userMaxAge)){
         System.out.println( "----------------------" );
         System.out.println( individualAnimal.mSpecies );
@@ -66,5 +79,32 @@ public class App {
         System.out.println( individualAnimal.mPrice );
       }
      }
-    }
+   } else if (navigationChoice.equals("Add Animal")){
+        System.out.println("Alright, let's add an animal! What type is your animal ?");
+        String userAnimalSpeci = myConsole.readLine();
+        System.out.println("Great! What age is the animal?");
+        Integer userAnimalAge = Integer.parseInt(myConsole.readLine());
+        System.out.println("Got it! What size is it?");
+        String userAnimalSize = myConsole.readLine();
+        System.out.println("Got it! What breed is it?");
+        String userAnimalBreed = myConsole.readLine();
+        System.out.println("Got it! What color is it?");
+        String userAnimalColor = myConsole.readLine();
+        System.out.println("Finally, what's its price?");
+        Integer userAnimalPrice = Integer.parseInt(myConsole.readLine());
+        Animal userAnimal = new Animal(userAnimalSpeci, userAnimalAge, userAnimalSize, userAnimalBreed, userAnimalColor, userAnimalPrice);
+        // allAnimals.add(userAnimal);
+        System.out.println("Alright, here's your new Animal:");
+        System.out.println( "----------------------" );
+        System.out.println( userAnimal.mSpecies );
+        System.out.println( userAnimal.mAge );
+        System.out.println( userAnimal.mBreed );
+        System.out.println( userAnimal.mColor );
+        System.out.println( userAnimal.mSize );
+        System.out.println( userAnimal.mPrice );
+
+   } else {
+    System.out.println("I'm sorry, we don't recognize your input");
+   }
  }
+}
