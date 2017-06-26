@@ -26,8 +26,8 @@ class Animal {
     return (mAge < maxAge);
   }
 
-  public void isAdopted(){
-  mAdopted = true;
+  public boolean isAdopted(){
+  return mAdopted = true;
   }
 
 }

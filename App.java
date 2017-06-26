@@ -54,7 +54,8 @@ public class App {
 
 
     for ( Animal individualAnimal : allAnimals ) {
-      individualAnimal.isAdopted();
+      Boolean animalIsAdopted = individualAnimal.isAdopted();
+      System.out.println(animalIsAdopted);
       if (individualAnimal.worthBuying(userMaxBudget) && individualAnimal.agePet(userMaxAge)){
         System.out.println( "----------------------" );
         System.out.println( individualAnimal.mSpecies );
