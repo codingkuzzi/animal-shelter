@@ -2,8 +2,12 @@ import java.io.Console;
 public class App {
  public static void main(String[] args) {
    Console myConsole = System.console();
+   Animal cat = new Animal("Cat", 3, "Persian", "Red", "Extra", 40, false);
+   Animal dog = new Animal("Dog", 5, "Yorkie", "Brown", "Small", 70, false);
+   Animal fish = new Animal("Fish", 1, "Gold Fish", "Yellow", "Medium", 30, false);
+   Animal bird = new Animal("Bird", 2, "Parrot", "Blue", "Extra small", 40, false);
 
-   Animal cat = new Animal();
+   /*Animal cat = new Animal();
     cat.mSpecies = "Cat";
     cat.mAge = 3;
     cat.mBreed = "Persian";
@@ -34,6 +38,9 @@ public class App {
     bird.mColor = "Blue";
     bird.mSize = "Extra small";
     bird.mPrice = 40;
+    */
+
+
 
     Animal[] allAnimals = {cat, dog, fish, bird};
     System.out.println("What is your maximum budget for an animal ?");
@@ -47,6 +54,7 @@ public class App {
 
 
     for ( Animal individualAnimal : allAnimals ) {
+      individualAnimal.isAdopted();
       if (individualAnimal.worthBuying(userMaxBudget) && individualAnimal.agePet(userMaxAge)){
         System.out.println( "----------------------" );
         System.out.println( individualAnimal.mSpecies );
