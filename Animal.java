@@ -6,4 +6,11 @@ class Animal {
   public String mColor;
   public int mPrice;
 
+  public boolean worthBuying(int maxPrice){
+    return (mPrice < maxPrice);
+  }
+
+  public boolean agePet(int maxAge){
+    return (mAge < maxAge);
+  }
 }
